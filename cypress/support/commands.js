@@ -6,7 +6,7 @@ Cypress.Commands.add('escribir', (selector, dato) => {
  })
 
  Cypress.Commands.add('hacer_click', (selector)=>{
-    cy.get(selector).click();
+   cy.get(selector).click();
     // cy.get(selector).realClick();
  })
 

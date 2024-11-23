@@ -34,16 +34,16 @@ describe('SauceDemo', () => {
     it(" Login Locked User", () => {
         cy.escribir(elementos.login.username, userLocked.username)
         cy.escribir(elementos.login.password, userLocked.password)
-        cy.hacer_clik(elementos.btnLogin)
-        cy.asertion_text(elementos.errorMsg, msgError.lockedUser)
+        cy.hacer_click(elementos.login.btnLogin)
+        cy.asertion_text(elementos.login.errorMsg, msgError.msg.lockedUser)
     })
 
     it('Login user error', () => {
         usersError.forEach((dato) => {
             cy.escribir(elementos.login.username, dato.username)
             cy.escribir(elementos.login.password, dato.password)
-            cy.hacer_clik(elementos.btnLogin)
-            cy.asertion_text(elementos.errorMsg, msgError.invalid)
+            cy.hacer_click(elementos.login.btnLogin)
+            cy.asertion_text(elementos.login.errorMsg, msgError.msg.invalid)
         })
     })
 
@@ -51,9 +51,9 @@ describe('SauceDemo', () => {
         usersOk.forEach(dato => {
             cy.escribir(elementos.login.username, dato.username)
             cy.escribir(elementos.login.password, dato.password)
-            cy.hacer_clik(elementos.btnLogin)
-            cy.hacer_clik(elementos.menu.menu)
-            cy.hacer_clik(elementos.menu.logout)
+            cy.hacer_click(elementos.login.btnLogin)
+            cy.hacer_click(elementos.menu.menu)
+            cy.hacer_click(elementos.menu.logout)
         })
 
     })
