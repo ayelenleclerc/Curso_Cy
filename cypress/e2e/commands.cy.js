@@ -6,14 +6,20 @@ describe('SauceDemo.com',()=>{
         cy.fixture('sauceCredenciales').then((datos)=>{
             this.dato = datos
         })
+        cy.fixture('../fixtures/DOM/loginElements.json').then((data) => {
+            this.element = data;
+        })
+        cy.fixture('../fixtures/DOM/messageError.json').then((data) => {
+            this.msg = data;
+        })
     })
    
     it.only('Login  password error', function(){
       
-        cy.escribir('[data-test="username"]', this.dato.standardUser)
-        cy.escribir('[data-test="password"]',this.dato.errorPassword)
-        cy.hacer_click('[data-test="login-button"]')
-        cy.asertion_text('[data-test="error"]', 'Epic sadface: Username and password do not match any user in this service')
+        cy.escribir(this.element.login.username, this.dato.standardUser)
+        cy.escribir(this.element.login.password,this.dato.errorPassword)
+        cy.hacer_click(this.element.login.btnLogin)
+        cy.asertion_text(this.element.login.errorMsg, this.msg.msg.invalid)
 })
   
 })

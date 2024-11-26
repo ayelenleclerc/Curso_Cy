@@ -13,3 +13,5 @@ Cypress.Commands.add('escribir', (selector, dato) => {
  Cypress.Commands.add('asertion_text', (selector, texto)=>{
     cy.get(selector).should('have.text', texto);
  })
+
+ 
