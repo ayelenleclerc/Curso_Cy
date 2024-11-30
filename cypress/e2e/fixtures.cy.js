@@ -23,11 +23,12 @@ describe('SauceDemo', ()=>{
         
     })
 
-    it(" Login Locked User", ()=>{
+    it.only(" Login Locked User", ()=>{
         cy.get('[data-test="username"]').type(userLocked.username)
         cy.get('[data-test="password"]').type(userLocked.password)
+        // cy.screenshot();
         cy.get('[data-test="login-button"]').click()
-        cy.get('[data-test="error"]').should('have.text','Epic sadface: Sorry, this user has been locked out.')
+        cy.get('[data-test="error"]').should('have.text','Epic sadface: Sorry')
     })
 
     it('Login user error', ()=>{

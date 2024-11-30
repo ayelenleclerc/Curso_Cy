@@ -12,27 +12,22 @@ class inventoryPage{
             btn_add: () => cy.get('[data-test="add-to-cart-sauce-labs-backpack"]'),
             btn_remove: () => cy.get('[data-test="remove-sauce-labs-backpack"]')
         },
-
     }
     abrirMenu() {
         this.elements.menu().click()
     }
     logout() {
         this.elements.logout().click()
-
     }
     ver_titulo() {
         this.elements.page_title().should('have.text', 'Products')
     }
-
     verificarImagen() {
         this.elements.product1.img().click()
     }
-
     verificarTitulo(texto) {
         this.elements.product1.prod_title().should('have.text', texto)
     }
-
     verificarPrecio(dato) {
         this.elements.product1.price().should('have.text', dato)
     }
