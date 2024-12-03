@@ -25,3 +25,10 @@ Cypress.Commands.add('logout', () => {
   cy.get('#react-burger-menu-btn').click();
   cy.get('[data-test="logout-sidebar-link"]').click();  
 })
+
+Cypress.Commands.add('loginSession', () => { 
+         cy.session('Login', () => {
+            cy.visit('/')
+            cy.loginOk2()
+         })
+});

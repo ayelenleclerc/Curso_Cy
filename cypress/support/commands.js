@@ -14,4 +14,6 @@ Cypress.Commands.add('escribir', (selector, dato) => {
     cy.get(selector).should('have.text', texto);
  })
 
- 
+ Cypress.Commands.add('inventoryAccess', ()=>{
+    cy.visit('/inventory.html',{failOnStatusCode: false})
+ })
